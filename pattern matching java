@@ -1,0 +1,36 @@
+import java.util.*;
+
+public class Paternmatch {
+   public static int num(String firststr, String secondstr)
+   {
+   int first = firststr.length();
+   int second = secondstr.length();
+   int j;
+   for(int index=0;index<first-second+1;index++)
+   {
+   for(j=0;j<second;j++)
+   {
+   if(firststr.charAt(index+j)!=secondstr.charAt(j))break;
+   }
+   if(j==second)return index;
+   }
+   return -1;
+   }
+   
+ public static void main (String[] args) {
+ long beginingtime = 0, endingtime = 0, time = 0;
+ beginingtime = System.currentTimeMillis();
+Scanner input= new Scanner(System.in);
+System.out.print("Enter first string: ");
+String firststr= input.next();
+System.out.print("Enter second string: ");
+String secondstr= input.next();
+Paternmatch subs = new Paternmatch();
+System.out.print("The string matches at index: ");
+System.out.println(subs.num(firststr,secondstr));
+endingtime= System.currentTimeMillis();
+    time = endingtime- beginingtime;
+System.out.println("The runtime of a program in millisecond is: " + time);
+  
+   }
+}
